@@ -22,10 +22,10 @@ The database consists of multiple related tables that store food purchase transa
 
 For a detailed view of the database structure, refer to the ER diagram below:
 
-![ER Diagram](ER_diagram.png)
+![ER Diagram](images/ER_diagram.png)
 
 ## Usage
-Run SQL queries from sql/queries.sql for specific analyses.  
+Run SQL queries from [sql/queries.sql](sql/queries.sql) for specific analyses.  
 Use Power BI to explore and interact with the dashboards.  
 ## Example Queries
 ### Top Categories with Highest Purchase Volume
