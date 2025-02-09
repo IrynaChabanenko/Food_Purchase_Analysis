@@ -1,4 +1,4 @@
-# Food Purchase Analysis Project
+# Food Purchase Analysis
 ## Overview
 This project analyzes personal food purchase data collected over the last 3 months. The goal is to extract insights about purchase patterns, identify impulsive purchases, and create interactive dashboards for visualization using SQL and Power BI.
 ## Objectives
@@ -26,7 +26,7 @@ For a detailed view of the database structure, refer to the ER diagram below:
 
 ## Usage
 Run SQL queries from [sql/queries.sql](sql/queries.sql) for specific analyses.  
-Use Power BI to explore and interact with the dashboards.  
+Use Power BI to explore and interact with the dashboard from [dashboards/power_bi_report.pbix](dashboards/power_bi_report.pbix).  
 ## Example Queries
 ### Top Categories with Highest Purchase Volume
 ```sql
@@ -101,7 +101,40 @@ FROM purchases p
 WHERE discount = TRUE AND purchase_planning = 'planned';
 ```
 ## Visualization in Power BI
---
+A dashboard was created in Power BI to facilitate analysis and provide easy access to key metrics and data trends.
+
+![Dashboard](images/power_bi_dashboard.png)
+
+ In Power BI various measures and calculated columns were created to enable detailed data analysis. Here are some of them:
+
+ ### Total Spending Measure
+ ```DAX
+Total spending measure = SUM(purchases[Total Spending])
+```
+ ### Average Check Amount
+ ```DAX
+AVG receipt = AVERAGEX(
+    SUMMARIZE(
+        'receipts',
+        'receipts'[receipt_number],
+        "m", SUM(purchases[Total Spending])
+    ),
+    [m]
+)
+```
+### Day of the Week Calculation
+ ```DAX
+Day of week = SWITCH(
+    'receipts'[weeknum],
+    1, "Mon",
+    2, "Tues",
+    3, "Wed",
+    4, "Thurs",
+    5, "Fri",
+    6, "Sat",
+    7, "Sun"
+)
+```
 ## Insights & Conclusions
 --
 ## Future Improvements
