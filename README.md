@@ -107,9 +107,16 @@ A dashboard was created in Power BI to facilitate analysis and provide easy acce
 
  In Power BI various measures and calculated columns were created to enable detailed data analysis. Here are some of them:
 
- ### Total Spending Measure
+ ### Share of unplanned purchases in total expenses
  ```DAX
-Total spending measure = SUM(purchases[Total Spending])
+Share of unplanned purchases = 
+    CALCULATE(
+        'purchases'[Total spending measure], 
+        FILTER(
+            'purchases', 
+            'purchases'[purchase_planning] = "unplanned"
+        )
+    ) / 'purchases'[Total spending measure]
 ```
  ### Average Check Amount
  ```DAX
@@ -136,7 +143,18 @@ Day of week = SWITCH(
 )
 ```
 ## Insights & Conclusions
---
+The analysis of purchase data has revealed key patterns in spending, shopping frequency, and the impact of discounts on decision-making.  
+### Key Findings:
+- The highest expenditures are on **dairy products, fish/meat and sweets**, indicating their significant share in the diet and regular demand for these items.
+- **Sweets** have the highest share of unplanned purchases, which may be influenced by emotional factors or attractive promotional offers.
+- Overall, **27% of all purchases were unplanned**, with the highest frequency occurring on **Saturdays and Mondays**.
+- The most common categories for impulsive purchases were **sweets, dairy products, and vegetables**, which might be influenced by situational cravings or in-store product placement strategies.
+- **55% of impulsive purchases were made with a discount**, which at first glance does not necessarily prove that discounts drive impulsive buying.
+- However, **only 4.5% of planned purchases were made with a discount**, highlighting a significant difference in my behavior as consumer. This suggests that **discounts play a crucial role in triggering impulsive purchases**.
+- **The highest spending occurs on Wednesdays and Saturdays**.
+### Overall Conclusion
+The study shows that spending patterns follow a certain trend, and unplanned purchases are significantly influenced by discounts. The most impulsive shopping days are Monday and Saturday, with sweets being the most frequently unplanned category. Given these insights, better purchase planning and awareness of the influence of discounts on spending can help reduce unnecessary expenses.
+
 ## Future Improvements
 - Collect more data for long-term trend analysis
 - Explore machine learning techniques to predict spontaneous purchases
