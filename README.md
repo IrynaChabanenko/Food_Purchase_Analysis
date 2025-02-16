@@ -7,7 +7,7 @@ This project analyzes personal food purchase data collected over the last 3 mont
 - Investigate impulsive purchases
 - Develop visualizations in Power BI for intuitive understanding
 ## Tech Stack
-- PostgreSQL: For storing and querying purchase data
+- PostgreSQL: For data modeling, storing, and querying purchase data
 - Power BI: For creating interactive dashboards
 - Excel: For data preprocessing and additional analysis
 ## Data Limitations
